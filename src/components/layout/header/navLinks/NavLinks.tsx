@@ -21,7 +21,7 @@ const NavLinks = () => {
         </div>
 
         <div className="header-nav__social flex">
-          <a href = "www.linkedin.com/in/bohdan-komirenko-1a6508269" target = "_blank" className = "header__link">
+          <a href = "https://www.linkedin.com/in/bohdan-komirenko-1a6508269/" target = "_blank" className = "header__link">
             <AiFillLinkedin  className = "icon"/>
           </a>
           <a href = "https://github.com/Astord1" target = "_blank" className = "header__link">
