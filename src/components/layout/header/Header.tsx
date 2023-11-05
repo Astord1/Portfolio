@@ -53,7 +53,7 @@ const Header = () => {
         <span className={`menu-btn-3 menu-btn-3--${drawerOpened && "opened"}`}></span>
       </Button>, document.getElementById("cls-btn")!)}
       {
-      <SideDrawer show={drawerOpened} onClick = {closeDrawer}>
+      <SideDrawer show={drawerOpened}>
         <nav className = 'header-nav header-nav--side-drawer flex'>
           <NavLinks />
         </nav>

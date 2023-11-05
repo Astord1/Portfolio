@@ -4,10 +4,9 @@ import "./SideDrawer.css"
 import { createPortal } from "react-dom"
 type PropsType = {
   show: boolean,
-  children: ReactNode,
-  onClick: () => void
+  children: ReactNode
 }
-const SideDrawer = ({show, children, onClick}: PropsType) => {
+const SideDrawer = ({show, children}: PropsType) => {
   const drawerRef = useRef(null)
   const content = (
     <CSSTransition nodeRef = {drawerRef} in = {show} timeout={200} classNames="side-drawer" mountOnEnter unmountOnExit>
