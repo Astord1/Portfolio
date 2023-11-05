@@ -5,8 +5,8 @@ import Contact from "./pages/contact/form/Contact";
 import NotFound from "./pages/notFound/NotFound";
 import Projects from "./pages/projects/Projects";
 
-const router = createBrowserRouter(createRoutesFromElements(<Route element = {<RootLayout />} errorElement={<NotFound />} path="/portfolio">
-  <Route index element={<Me />}/>
+const router = createBrowserRouter(createRoutesFromElements(<Route element = {<RootLayout />} errorElement={<NotFound />}>
+  <Route path = "/" element={<Me />}/>
   <Route path = "contact" element={<Contact />} />
   <Route path = "projects" element={<Projects />} />
 </Route>))
