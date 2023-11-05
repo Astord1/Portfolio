@@ -1,4 +1,4 @@
-import "./NavLinks.css"
+import "./NavLInks.css";
 import {AiFillLinkedin, AiFillGithub, AiFillInstagram} from "react-icons/ai";
 import { NavLink } from "react-router-dom";
 
