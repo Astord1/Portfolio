@@ -10,7 +10,7 @@ import logoImage from "../../../assets/logo.png"
 
 const Header = () => {
   const [drawerOpened, setDrawerOpened] = useState<boolean>(false)
-  const closeDrawer = () => setDrawerOpened(false)
+/*   const closeDrawer = () => setDrawerOpened(false) */
   const headerRef = useRef(null)
   const mediaMatchesScreen = window.matchMedia('(min-width:700px)');
   const mediaMatchesMobile = window.matchMedia('(max-width:700px)');

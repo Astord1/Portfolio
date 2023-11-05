@@ -21,11 +21,9 @@ const Face = ({children, className, style, index}: PropsType) => {
     get: (target: string[], prop1) => {
       const prop= Number(prop1)
       if(prop < 0){
-        console.log(target.length + prop)
         return Reflect.get(target, target.length + prop)
       }
       if(prop >= target.length){
-        console.log(prop % target.length)
         return target[prop % target.length]
       }
       return Reflect.get(target, prop)

@@ -11,7 +11,6 @@ type PropsType = {
 }
 
 const Tooltip = ({delay, children, className, content, tooltipClassName}: PropsType) => {
-  let timeout: number;
   const [active, setActive] = useState<boolean>(false);
   const tooltipRef = useRef(null);
 
