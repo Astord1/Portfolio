@@ -1,12 +1,12 @@
 
-import { useReducer } from "react"
+import { useReducer} from "react"
 import "./Form.css"
-
+import emailjs from '@emailjs/browser';
 import {AiFillLinkedin} from "react-icons/ai"
 
 type ActionType = {
-  type: "CHANGE",   
-  payload: EventTarget & HTMLTextAreaElement | EventTarget & HTMLInputElement
+  type: "CHANGE" | "CLEAR",   
+  payload?: EventTarget & HTMLTextAreaElement | EventTarget & HTMLInputElement
 }
 type StateType = {
     name: string,
@@ -23,7 +23,13 @@ const Form = ({className}:PropsType) => {
       case "CHANGE":
         return {
           ...state,
-          [action!.payload.name]: action!.payload.value
+          [action.payload!.name]: action.payload!.value
+        }
+      case "CLEAR":
+        return {
+          name: "",
+          email: "",
+          message: ""
         }
       default:
         return {...state}
@@ -33,10 +39,23 @@ const Form = ({className}:PropsType) => {
     email: "",
     message: ""
   })
+
+  async function handleSubmit(e: React.SyntheticEvent){
+    e.preventDefault();
+    try{
+      console.log("sent")
+      await emailjs.send("service_954240r", "template_zx09phk", state, 'iliXEApOdoxDDn8BG')
+      alert("Email was sent successfully!")
+    } catch(error){
+      console.log(error);
+      alert("Oops!Something went wrong.")
+    }
+    dispatch({type: "CLEAR"})
+  }
   return (
     <div className={`contact-form-container ${className}`}>
       <form
-        onSubmit={(e) => e.preventDefault}
+        onSubmit={handleSubmit}
         className="contact-form"
       >
           <h2 className="form-title">Contact Me</h2>
@@ -47,6 +66,7 @@ const Form = ({className}:PropsType) => {
             value={state.name}
             name="name"
             onChange={(e) => dispatch({type: "CHANGE", payload: e.target})}
+            required
           />
           <input
             type="email"
@@ -55,6 +75,7 @@ const Form = ({className}:PropsType) => {
             value={state.email}
             name="email"
             onChange={(e) => dispatch({type: "CHANGE", payload: e.target})}
+            required
           />
       
           <textarea
@@ -63,9 +84,10 @@ const Form = ({className}:PropsType) => {
             value={state.message}
             name="message"
             onChange={(e) => dispatch({type: "CHANGE", payload: e.target})}
+            required            
           />
           
-          <input className='form-input form-input--btn' type="button" value={"Send"} />
+          <input className='form-input form-input--btn' type="submit" value={"Send"} />
 
 
           <p className="form-small">or</p>
