@@ -1,0 +1,41 @@
+.tooltip-wrapper{
+  position: relative;
+}
+.tooltip-content{
+  position: absolute;
+  bottom: -1.5em;
+  transform: translateY(100%);
+  background-color: white;
+  color: black;
+  border-radius: 8px;
+  padding: 1em;
+}
+
+.tooltip-content::before {
+  content: " ";
+  top: -.8em;
+  left: 1.5em;
+  border: solid transparent;
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-width: .9em;
+  transform: rotate(45deg);
+  background-color: white;
+}
+
+.tooltip-active{
+  opacity: 0;
+}
+.tooltip-enter-done{
+  opacity: 1;
+  transition: .3s opacity;
+}
+.tooltip-exit{
+  opacity: 1;
+}
+.tooltip-exit-active{
+  opacity: 0;
+  transition: .3s opacity;
+}
