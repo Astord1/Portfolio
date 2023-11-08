@@ -1,5 +1,7 @@
 .face{
-  background-image: url(../../../assets/me.jpg);
+  background: url(../../../assets/bg.jpg);
+  background-color: rgb(175, 175, 175);
+  background-blend-mode:multiply;
   min-height: 500px;
   background-size: cover;
   background-position-y: center;

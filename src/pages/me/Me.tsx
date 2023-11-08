@@ -1,14 +1,10 @@
 import Description from "../shared/description/Description"
 import Face from "../shared/face/Face"
 import "./Me.css"
-import image from "../../assets/me.jpg"
 import Tooltip from "../../components/shared/tooltip/Tooltip"
 import {BsQuestionLg} from "react-icons/bs"
 
 const Me = () => {
-  const faceStyle = {
-    background: image
-  }
 
   const tooltipContent = (
     <p className="face__tooltip-body">
@@ -19,7 +15,7 @@ const Me = () => {
   )
   return (
     <main className="main">
-      <Face style = {faceStyle} index = {0}>
+      <Face index = {0}>
         <Tooltip 
           delay={300} 
           content = {tooltipContent} 
